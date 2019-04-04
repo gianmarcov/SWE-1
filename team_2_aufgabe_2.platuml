@@ -1,0 +1,31 @@
+@startuml
+
+title "(Model) Kunde - Klassendiagramm"
+
+
+class Kunde {
+  - name: String
+  - vorname: String
+  - anschrift: List<Anschrift>
+  - telefon: List<String>
+  - fax: List<String>
+  - mobiltelefon: List<String>
+  - email_addresse: List<String>
+  - kundenart: Kundenart
+}
+
+class Anschrift {
+  - strasse: String
+  - ort: String
+  - plz: String
+}
+
+class "Kundenart <<Enumeration>>" as type {
+   Firmenkunden = 1
+   Premiumkunden = 2
+}
+
+Kunde *-- Anschrift
+Kunde ... type
+
+@enduml
