@@ -1,0 +1,31 @@
+@startuml
+
+title Systemkontextdiagramm
+
+
+rectangle "<<System>> Benutzerverwaltung" {
+    rectangle Kunde {
+        (erfassen)
+        (editieren)
+        (löschen)
+        (suchen)
+        (lesen)
+    }
+}
+
+:Mitarbeiter / IT-Administrator / Sonstige Mitarbeiter: as user
+
+user --> (erfassen)
+user --> (editieren)
+user --> (löschen)
+user --> (suchen)
+user --> (lesen)
+
+:Finanzbuchhaltung / Auftragsverwaltung / Webshop: as api_user
+
+(editieren) <-- api_user
+(suchen) <-- api_user
+(erfassen) <-- api_user
+(lesen) <-- api_user
+
+@enduml
