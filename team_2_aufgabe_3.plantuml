@@ -1,0 +1,27 @@
+@startuml
+
+title: Kunde Aktivitätsdiagramm
+
+(*) --> "suchen"
+if "existiert" then
+     --> [true] "anzeigen"
+     if "editieren" then
+         --> [true] "validieren"
+     else 
+     --> [false] "schliessen"
+     --> "suchen"
+     endif
+else
+ --> "erstellen"
+ --> "erfassen"
+ --> "validieren"
+ if "resultat" then
+ --> [true] speichern
+ --> "anzeigen"
+ else 
+ --> [false] "fehler anzeigen"
+ --> "erfassen"
+ endif
+endif
+
+"suchen"  --> "Beenden"
