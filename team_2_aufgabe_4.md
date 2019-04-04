@@ -4,7 +4,7 @@ Kunde und Adressen sind Klassen (Modellklasse) die Serialisiert werden können i
 Die Klassen können auch mit einem ORM Framework wie Hibernate mit einer Datenbank verbunden werden und automatisch upserted (insert / update) , gelöscht werden.
 
 ## Klasse Kunde
-Verantwortlich und enthält die Kundendaten, Adressen, Email Adressen, Telefonnummer, KundentypVerantwortlich und enthält etc.
+Verantwortlich und enthält die Kundendaten, Adressen, Email Adressen, Telefonnummer, Kundentyp etc.
 
 ## Enum Kundentyp
 Ist eine Enumeration die beliebig lang sein kann, jeder Wert ist zu einem Typ angeordnet.
