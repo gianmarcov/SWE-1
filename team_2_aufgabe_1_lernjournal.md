@@ -12,7 +12,7 @@ ACHTUNG: Rot markierte Zellen werden automatisch ausgefüllt"***
 Tätigkeiten (für jeden Tag eine einzelne Zeile) |	Aufwand/min	Aufwand/h	 | Datum
 ----------------------------------------------- | ---------------------- | -----
 Besprechung UML erstellung im Team | 1 | 04.04.2019
-Summen Aufwand                                  | 1                      | 0 | 04.04.2019
+Summen Aufwand                                  | 1                      | |
 			
 			
 ### Mariano Martinez:			 
@@ -20,5 +20,5 @@ Summen Aufwand                                  | 1                      | 0 | 0
 Tätigkeiten (für jeden Tag eine einzelne Zeile) |	Aufwand/min	Aufwand/h	 | Datum
 ----------------------------------------------- | ---------------------- | -----
 Besprechung UML erstellung im Team | 1 |  04.04.2019
-Summen Aufwand                                  | 1                      | 0 |
+Summen Aufwand                                  | 1                      | |
 			
