@@ -5,18 +5,20 @@ namensschema: team_<#>_aufgabe_<#>_lernjournal.<erweiterung> Beispiel: team_5_au
 ACHTUNG: Rot markierte Zellen werden automatisch ausgefüllt"***
 			
 			
-## Aufgabe (Titel oder Nr.):			
+## Aufgabe (1,2,3):			
 			
 ### Gianmarco Vitelli:			 
 
 Tätigkeiten (für jeden Tag eine einzelne Zeile) |	Aufwand/min	Aufwand/h	 | Datum
 ----------------------------------------------- | ---------------------- | -----
-Summen Aufwand                                  | 0                      | 0
+Besprechung UML erstellung im Team | 1 | 04.04.2019
+Summen Aufwand                                  | 1                      | 0 | 04.04.2019
 			
 			
 ### Mariano Martinez:			 
 			
 Tätigkeiten (für jeden Tag eine einzelne Zeile) |	Aufwand/min	Aufwand/h	 | Datum
 ----------------------------------------------- | ---------------------- | -----
-Summen Aufwand                                  | 0                      | 0
+Besprechung UML erstellung im Team | 1 |  04.04.2019
+Summen Aufwand                                  | 1                      | 0 |
 			
