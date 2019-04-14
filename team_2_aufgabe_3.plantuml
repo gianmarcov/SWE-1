@@ -1,5 +1,3 @@
-@startuml
-
 title Zustandsdiagramm Kunde
 
 [*] ---> erstellen : instanzieren
@@ -15,5 +13,3 @@ serialisieren -> [*] : speichern
 editieren --> zerstören : löschen
 erstellen --> zerstören : löschen
 zerstören --> [*] : speicher freigeben
-
-@enduml
