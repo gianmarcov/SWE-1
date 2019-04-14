@@ -38,7 +38,7 @@ Summen Aufwand                                  | 1                      | |
 Tätigkeiten (für jeden Tag eine einzelne Zeile) |	Aufwand/min	Aufwand/h	 | Datum
 ----------------------------------------------- | ---------------------- | -----
 Besprechung UML erstellung im Team | 1 |  04.04.2019
-Summen Aufwand
+Summen Aufwand					| 1
 
 
 ## Aufgabe 1 (Zustandsdiagramm):			
