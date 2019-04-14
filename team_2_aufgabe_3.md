@@ -1,0 +1,19 @@
+@startuml
+
+title Zustandsdiagramm Kunde
+
+[*] ---> erstellen : instanzieren
+erstellen -> editieren : ändern
+
+
+[*] -> deserialisieren : source einlesen
+deserialisieren -> erstellen : instanzieren
+
+editieren ---> serialisieren : speichern
+serialisieren -> [*] : speichern
+
+editieren --> zerstören : löschen
+erstellen --> zerstören : löschen
+zerstören --> [*] : speicher freigeben
+
+@enduml
