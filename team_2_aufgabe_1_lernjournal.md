@@ -5,7 +5,7 @@ namensschema: team_<#>_aufgabe_<#>_lernjournal.<erweiterung> Beispiel: team_5_au
 ACHTUNG: Rot markierte Zellen werden automatisch ausgefüllt"***
 			
 			
-## Aufgabe 1:			
+## Aufgabe 1 (Systemkontext):			
 			
 ### Gianmarco Vitelli:			 
 
@@ -23,7 +23,7 @@ Besprechung UML erstellung im Team | 1 |  04.04.2019
 Summen Aufwand                                  | 1                      | |
 	
 	
-## Aufgabe 2:			
+## Aufgabe 1 (Klassendiagramm):			
 			
 ### Gianmarco Vitelli:			 
 
@@ -41,7 +41,7 @@ Besprechung UML erstellung im Team | 1 |  04.04.2019
 Summen Aufwand
 
 
-## Aufgabe 3:			
+## Aufgabe 1 (Zustandsdiagramm):			
 			
 ### Gianmarco Vitelli:			 
 
