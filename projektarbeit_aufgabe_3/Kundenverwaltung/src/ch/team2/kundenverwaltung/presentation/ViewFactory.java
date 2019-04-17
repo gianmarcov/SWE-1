@@ -1,6 +1,7 @@
 package ch.team2.kundenverwaltung.presentation;
 
 import ch.team2.kundenverwaltung.business.BoCustomerFactory;
+import ch.team2.kundenverwaltung.presentation.swing.SwingViewImpl;
 
 /**
  * Factory class for creating view

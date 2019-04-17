@@ -1,4 +1,4 @@
-package ch.team2.kundeverwaltung;
+package ch.team2.kundenverwaltung;
 
 import ch.team2.kundenverwaltung.presentation.View;
 import ch.team2.kundenverwaltung.presentation.ViewFactory;
