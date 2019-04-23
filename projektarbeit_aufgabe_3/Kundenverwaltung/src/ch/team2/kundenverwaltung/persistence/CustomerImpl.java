@@ -5,6 +5,15 @@ public class CustomerImpl implements Customer {
 	private String firstname;
 	private String lastname;
 	
+	public CustomerImpl() {
+	}
+	
+	public CustomerImpl(final String firstname, 
+						final String lastname) {
+		this.firstname = firstname;
+		this.lastname = lastname;
+	}
+	
 	@Override
 	public String getFirstName() {
 		return firstname;
