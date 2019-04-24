@@ -33,5 +33,9 @@ public class CustomerImpl implements Customer {
 	public void setLastName(final String lastname) {
 		this.lastname = lastname;
 	}
-
+	
+	@Override
+	public String toString() {
+		return this.firstname + " " + this.lastname;
+	}
 }
