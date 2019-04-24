@@ -6,7 +6,7 @@ import ch.team2.kundenverwaltung.presentation.ViewFactory;
 public class Application {
 	 public static void main(String[] args) {
 		final ViewFactory viewFactory = ViewFactory.getInstance();
-		final View view = viewFactory.createView(false);
+		final View view = viewFactory.createView(true);
 		view.run();
 	 }
 }
