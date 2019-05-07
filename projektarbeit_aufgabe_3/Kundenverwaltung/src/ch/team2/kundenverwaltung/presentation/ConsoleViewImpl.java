@@ -136,7 +136,7 @@ public class ConsoleViewImpl extends AbstractViewImpl {
 		} while(!EXIT.equals(command));
 	}
 	
-	public void printMenu() {
+	private void printMenu() {
 		System.out.println("Menu:");
 		System.out.println("[1] Kunde erfassen");
 		System.out.println("[2] Kunden anzeigen");
@@ -145,7 +145,7 @@ public class ConsoleViewImpl extends AbstractViewImpl {
 		System.out.println("[5] schliessen");
 	}
 	
-	public void printWelcomeScreen() {
+	private void printWelcomeScreen() {
 		System.out.println("                         _                                        _ _                                ");
 		System.out.println("  /\\ /\\_   _ _ __   __| | ___ _ ____   _____ _ ____      ____ _| | |_ _   _ _ __   __ _            ");
 		System.out.println(" / //_/ | | | '_ \\ / _` |/ _ \\ '_ \\ \\ / / _ \\ '__\\ \\ /\\ / / _` | | __| | | | '_ \\ / _` |    ");

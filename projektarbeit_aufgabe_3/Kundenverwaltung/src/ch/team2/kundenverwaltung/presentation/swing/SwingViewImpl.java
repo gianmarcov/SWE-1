@@ -340,7 +340,7 @@ public class SwingViewImpl extends AbstractViewImpl {
 		});
 	}
 	
-	public boolean isPrintableChar( char c ) {
+	private boolean isPrintableChar( char c ) {
 	    Character.UnicodeBlock block = Character.UnicodeBlock.of( c );
 	    return (!Character.isISOControl(c)) &&
 	            c != KeyEvent.CHAR_UNDEFINED &&

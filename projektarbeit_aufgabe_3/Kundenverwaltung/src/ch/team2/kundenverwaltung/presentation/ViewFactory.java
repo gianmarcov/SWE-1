@@ -10,13 +10,13 @@ public class ViewFactory {
 	/**
 	 * Singleton ViewFactory
 	 */
-	public static ViewFactory clientFactory;
+	public static ViewFactory viewFactory;
 	
 	/**
 	 * @return ViewFactory
 	 */
 	public static ViewFactory getInstance() {
-		return clientFactory == null ? clientFactory = new ViewFactory() : clientFactory;
+		return viewFactory == null ? viewFactory = new ViewFactory() : viewFactory;
 	}
 	
 	/**

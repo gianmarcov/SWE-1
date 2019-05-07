@@ -1,0 +1,160 @@
+@startuml
+
+class "**Application**" as Application {
+  + main()
+}
+
+package "Buiness Layer" {
+class "**<<BoCustomer>>**" as BoCustomer {
+  + createCustomer(String firstName, String lastName) : void
+  + getCustomers() : List<Customer>
+  + getCustomer(int index) : Customer
+  + deleteCustomer(int index) : void
+}
+
+class "**BoCustomerFactory**" as BoCustomerFactory {
+  - boCustomerFactory : BoCustomerFactory
+  + getInstance() : BoCustomerFactory
+  + createBoCustomer() : BoCustomer
+}
+
+class "**BoCustomerImpl**" as BoCustomerImpl {
+    - daoCustomer : DaoCustomer
+    + constructor(DaoCustomer daoCustomer)
+    + createCustomer(String firstname, String lastname) : void
+    + getCustomers() : List<Customer>
+    + getCustomer(int index) : Customer
+    + deleteCustomer(int index) : void
+}
+}
+
+package "Model" {
+class "**<<Customer>>**" as Customer {
+    + getFirstName() : String
+    + getLastName() : String
+    + setFirstName(String firstname) : void
+    + setLastName(String lastname) : void
+}
+
+class "**CustomerImpl**" as CustomerImpl {
+    + constructor()
+    + constructor(String firstname, String lastname)
+    + getFirstName() : String
+    + getLastName() : String
+    + setFirstName(String firstname) : void
+    + setLastName(String lastname) : void
+    + toString() : String
+}
+}
+
+package "Persistence Layer" {
+class "**<<DaoCustomer>>**" as DaoCustomer {
+    + insert(Customer customer) : void
+    + select(int index) : Customer
+    + select() : List<Customer>
+    + delete(int index) : void
+}
+
+class "**DaoCustomerFactory**" as DaoCustomerFactory {
+    + daoCustomerFactory : DaoCustomerFactory
+    + getInstance() : DaoCustomerFactory
+    + createDaoCustomer() : DaoCustomer
+}
+
+class "**DaoCustomerMockImpl**" as DaoCustomerMockImpl {
+    - customers : List<Customer>
+    + insert(Customer customer) : void
+    + select(int index) : Customer
+    + select() : List<Customer>
+    + delete(int index) : void
+}
+}
+
+package "Presentation Layer" {
+
+class "**{AbstractViewImpl}**" as AbstractViewImpl {
+    - boCustomer : BoCustomer
+    + constructor(BoCustomer boCustomer)
+    + displayCustomer() : void
+    + displayCustomers() : void
+    + initiateCreationOfCustomer() : void
+    + run() : void
+    + getBoCustomer() : BoCustomer
+}
+
+class "**ConsoleViewImpl**" as ConsoleViewImpl {
+    - boCustomer : BoCustomer
+    + constructor(BoCustomer boCustomer)
+    + displayCustomer() : void
+    + displayCustomers() : void
+    + initiateCreationOfCustomer() : void
+    + run() : void
+    + getBoCustomer() : BoCustomer
+    + printMenu() : void
+    + printWelcomeScreen() : void
+}
+
+class "**<<View>>**" as View {
+    + displayCustomer() : void
+    + displayCustomers() : void
+    + initiateCreationOfCustomer() : void
+    + run() : void
+}
+
+class "**ViewFactory**" as ViewFactory {
+    - viewFactory : ViewFactory
+    + getInstance() : ViewFactory
+    + createView(boolean ui) : View
+}
+
+class "**SwingViewImpl**" as SwingViewImpl {
+    + constructor(BoCustomer boCustomer)
+    + displayCustomer() : void
+    + displayCustomers() : void
+    + initiateCreationOfCustomer() : void
+    + run() : void
+    + getBoCustomer(): BoCustomer
+    - buildMainWindow() : void
+    - buildCreateCustomerDialog() : void
+    - addListeners(): void
+    - buildTitle() : JPanel
+    - buildBody() : JPanel
+    - buildCredits() : JPanel
+    - fillTableWithCostumer() : void
+    - isPrintableChar() : boolean
+}
+}
+
+SwingViewImpl --|> AbstractViewImpl
+ConsoleViewImpl --|> AbstractViewImpl
+AbstractViewImpl ..|> View
+ViewFactory --> SwingViewImpl  : "instantiate "
+ViewFactory --> ConsoleViewImpl  : "instantiate "
+
+CustomerImpl ..|> Customer
+
+DaoCustomerFactory --> DaoCustomerMockImpl : "instantiate "
+DaoCustomerMockImpl ..|> DaoCustomer
+
+BoCustomerFactory --> BoCustomerImpl : "instantiate "
+BoCustomerImpl ..|> BoCustomer
+
+Application -> ViewFactory
+ViewFactory -> BoCustomerFactory
+BoCustomerFactory -> DaoCustomerFactory
+
+BoCustomerImpl --> CustomerImpl : "instantiate " 
+DaoCustomerMockImpl --> Customer : "uses" 
+ConsoleViewImpl ---> Customer : "uses" 
+SwingViewImpl ---> Customer : "uses"
+AbstractViewImpl ---> Customer : "uses"
+
+hide  circle
+skinparam classAttributeIconSize 0
+skinparam class {
+	BackgroundColor #7acff5
+	ArrowColor black
+	BorderColor black
+}
+
+@enduml
