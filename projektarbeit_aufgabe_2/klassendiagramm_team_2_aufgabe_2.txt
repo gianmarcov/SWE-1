@@ -1,0 +1,61 @@
+@startuml
+
+package "Buiness Layer" {
+class "**<<BoCustomer>>**" as BoCustomer {
+  + createCustomer(String firstName, String lastName) : void
+  + getCustomers() : List<Customer>
+  + getCustomer(int index) : Customer
+  + deleteCustomer(int index) : void
+}
+
+class "**BoCustomerFactory**" as BoCustomerFactory {
+  - boCustomerFactory : BoCustomerFactory
+  + getInstance() : BoCustomerFactory
+  + createBoCustomer() : BoCustomer
+}
+
+class "**BoCustomerImpl**" as BoCustomerImpl {
+    - daoCustomer : DaoCustomer
+    + constructor(DaoCustomer daoCustomer)
+    + createCustomer(String firstname, String lastname) : void
+    + getCustomers() : List<Customer>
+    + getCustomer(int index) : Customer
+    + deleteCustomer(int index) : void
+}
+}
+
+package "Model" {
+class "**<<Customer>>**" as Customer {
+    + getFirstName() : String
+    + getLastName() : String
+    + setFirstName(String firstname) : void
+    + setLastName(String lastname) : void
+}
+
+class "**CustomerImpl**" as CustomerImpl {
+    + constructor()
+    + constructor(String firstname, String lastname)
+    + getFirstName() : String
+    + getLastName() : String
+    + setFirstName(String firstname) : void
+    + setLastName(String lastname) : void
+    + toString() : String
+}
+}
+
+CustomerImpl ..|> Customer
+
+BoCustomerFactory --> BoCustomerImpl : "instantiate "
+BoCustomerImpl ..|> BoCustomer
+
+BoCustomerImpl --> CustomerImpl : "instantiate " 
+
+hide  circle
+skinparam classAttributeIconSize 0
+skinparam class {
+	BackgroundColor #7acff5
+	ArrowColor black
+	BorderColor black
+}
+
+@enduml
