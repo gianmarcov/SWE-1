@@ -1,0 +1,41 @@
+@startuml
+
+package "Persistence Layer" {
+class "**<<DaoCustomer>>**" as DaoCustomer {
+    + insert(Customer customer) : void
+    + select(int index) : Customer
+    + select() : List<Customer>
+    + delete(int index) : void
+}
+
+class "**DaoCustomerFactory**" as DaoCustomerFactory {
+    + daoCustomerFactory : DaoCustomerFactory
+    + getInstance() : DaoCustomerFactory
+    + createDaoCustomer() : DaoCustomer
+}
+
+class "**DaoCustomerMockImpl**" as DaoCustomerMockImpl {
+    - customers : List<Customer>
+    + insert(Customer customer) : void
+    + select(int index) : Customer
+    + select() : List<Customer>
+    + delete(int index) : void
+}
+}
+
+CustomerImpl ..|> Customer
+
+DaoCustomerFactory --> DaoCustomerMockImpl : "instantiate "
+DaoCustomerMockImpl ..|> DaoCustomer
+
+DaoCustomerMockImpl --> Customer : "uses" 
+
+hide  circle
+skinparam classAttributeIconSize 0
+skinparam class {
+	BackgroundColor #7acff5
+	ArrowColor black
+	BorderColor black
+}
+
+@enduml
