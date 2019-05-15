@@ -1,0 +1,32 @@
+@startuml
+
+actor User
+participant "View" as view
+participant "BoCustomer" as bocustomer
+participant "DaoCustomer" as daocustomer
+participant "Customer" as customer
+
+User -> view: initiateCreationOfCustomer()
+view -> bocustomer: createCustomer()
+bocustomer -> customer: new Customer()
+customer -> bocustomer: object reference
+bocustomer -> daocustomer: insert(customer)
+
+skinparam sequence {
+	ArrowColor black
+	ActorBorderColor black
+	LifeLineBorderColor black
+	LifeLineBackgroundColor #FFF
+	
+	ParticipantBorderColor black
+	ParticipantBackgroundColor #7acff5
+	ParticipantFontSize 17
+	ParticipantFontColor black
+	
+	ActorBackgroundColor #7acff5
+	ActorFontColor black
+	ActorFontSize 17
+}
+
+
+@enduml
