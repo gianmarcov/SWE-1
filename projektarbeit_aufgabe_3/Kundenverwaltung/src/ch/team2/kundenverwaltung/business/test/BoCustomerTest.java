@@ -14,12 +14,27 @@ import ch.team2.kundenverwaltung.persistence.Customer;
 import ch.team2.kundenverwaltung.persistence.CustomerImpl;
 import ch.team2.kundenverwaltung.persistence.DaoCustomer;
 
+/**
+ * The Class BoCustomerTest.
+ * 
+ * @author Vitelli Gianmarco / Mariano Martinez
+ */
 @RunWith(JUnit4.class)
 public class BoCustomerTest {
+	
+	/** The insert called. */
 	private boolean insertCalled = false;
+	
+	/** The get customers called. */
 	private boolean getCustomersCalled = false;
+	
+	/** The get customer called. */
 	private boolean getCustomerCalled = false;
+	
+	/** The delete customer called. */
 	private boolean deleteCustomerCalled = false;
+	
+	/** The mock customers. */
 	@SuppressWarnings("serial")
 	private List<Customer> mockCustomers = new ArrayList<Customer>() {
 		{
@@ -28,6 +43,9 @@ public class BoCustomerTest {
 		}
 	};
 
+	/**
+	 * should create the customer.
+	 */
 	@Test
 	public void createCustomer() {
 		final BoCustomer boCustomer = new BoCustomerImpl(new DaoCustomer() {
@@ -56,6 +74,9 @@ public class BoCustomerTest {
 		Assert.assertTrue("have not called the method insert of dao", insertCalled);
 	}
 	
+	/**
+	 * should return the customers.
+	 */
 	@Test
 	public void getCustomers() {
 		final BoCustomer boCustomer = new BoCustomerImpl(new DaoCustomer() {
@@ -83,6 +104,9 @@ public class BoCustomerTest {
 		Assert.assertTrue("have not called the method select of dao", getCustomersCalled);
 	}
 	
+	/**
+	 * should return the right customer.
+	 */
 	@Test
 	public void getCustomer() {
 		final BoCustomer boCustomer = new BoCustomerImpl(new DaoCustomer() {
@@ -111,6 +135,9 @@ public class BoCustomerTest {
 		Assert.assertTrue("have not called the method select of dao", getCustomerCalled);
 	}
 	
+	/**
+	 * should delete customer.
+	 */
 	@Test
 	public void deleteCustomer() {
 		final BoCustomer boCustomer = new BoCustomerImpl(new DaoCustomer() {

@@ -8,11 +8,16 @@ import org.junit.runners.JUnit4;
 import ch.team2.kundenverwaltung.persistence.DaoCustomer;
 import ch.team2.kundenverwaltung.persistence.DaoCustomerFactory;
 
+/**
+ * The Class DaoCustomerFactoryTest.
+ * 
+ * @author Vitelli Gianmarco / Mariano Martinez
+ */
 @RunWith(JUnit4.class)
 public class DaoCustomerFactoryTest {
 
 	/**
-	 * should create data access object customer
+	 * should create data access object customer.
 	 */
 	@Test
 	public void createBoCustomer() {
@@ -22,7 +27,7 @@ public class DaoCustomerFactoryTest {
 	}
 	
 	/**
-	 * should return the same instance reference of factory
+	 * should return the same instance reference of factory.
 	 */
 	@Test
 	public void getInstance() {

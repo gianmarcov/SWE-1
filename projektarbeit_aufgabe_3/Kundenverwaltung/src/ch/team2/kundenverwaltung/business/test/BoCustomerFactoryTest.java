@@ -7,11 +7,16 @@ import org.junit.runners.JUnit4;
 import ch.team2.kundenverwaltung.business.BoCustomer;
 import ch.team2.kundenverwaltung.business.BoCustomerFactory;
 
+/**
+ * The Class BoCustomerFactoryTest.
+ * 
+ *  @author Vitelli Gianmarco / Mariano Martinez
+ */
 @RunWith(JUnit4.class)
 public class BoCustomerFactoryTest {
 
 	/**
-	 * should create business object customer
+	 * should create business object customer.
 	 */
 	@Test
 	public void createBoCustomer() {
@@ -21,7 +26,7 @@ public class BoCustomerFactoryTest {
 	}
 	
 	/**
-	 * should return the same instance reference of factory
+	 * should return the same instance reference of factory.
 	 */
 	@Test
 	public void getInstance() {

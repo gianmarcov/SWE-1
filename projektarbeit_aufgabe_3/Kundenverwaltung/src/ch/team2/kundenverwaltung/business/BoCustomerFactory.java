@@ -3,15 +3,18 @@ package ch.team2.kundenverwaltung.business;
 import ch.team2.kundenverwaltung.persistence.DaoCustomerFactory;
 
 /**
- * Factory class for creating boCustomers
+ * Factory class for creating boCustomers.
+ * 
+ * @author Vitelli Gianmarco / Mariano Martinez
  */
 public class BoCustomerFactory {
-	/**
-	 * Singleton BoCustomerFactory
-	 */
+	
+	/** Singleton BoCustomerFactory. */
 	public static BoCustomerFactory boCustomerFactory;
 	
 	/**
+	 * Gets the single instance of BoCustomerFactory.
+	 *
 	 * @return BoCustomerFactory
 	 */
 	public static BoCustomerFactory getInstance() {
@@ -19,8 +22,9 @@ public class BoCustomerFactory {
 	}
 	
 	/**
-	 * create customer
-	 * @return
+	 * create bo customer.
+	 *
+	 * @return the bo customer
 	 */
 	public BoCustomer createBoCustomer() {
 		final DaoCustomerFactory daoCustomerFactory = new DaoCustomerFactory();

@@ -12,18 +12,30 @@ import ch.team2.kundenverwaltung.persistence.CustomerImpl;
 import ch.team2.kundenverwaltung.persistence.DaoCustomer;
 import ch.team2.kundenverwaltung.persistence.DaoCustomerFactory;
 
+/**
+ * The Class DaoCustomerTest.
+ * 
+ * @author Vitelli Gianmarco / Mariano Martinez
+ */
 @RunWith(JUnit4.class)
 public class DaoCustomerTest {
 	
+	/** The dao customer. */
 	final DaoCustomer daoCustomer = DaoCustomerFactory.getInstance().createDaoCustomer();
 	
 	
+	/**
+	 * should insert customer.
+	 */
 	@Test
 	public void insert() {
 		daoCustomer.insert(new CustomerImpl("Peter", "Meier"));
 		Assert.assertEquals("the customer must be inserted into the list",  1, daoCustomer.select().size());
 	}
 
+	/**
+	 * should select customers
+	 */
 	@Test
 	public void select()  {
 		boolean throwedException = false;
@@ -42,6 +54,9 @@ public class DaoCustomerTest {
 		
 	}
 	
+	/**
+	 * select customer with given index.
+	 */
 	@Test
 	public void selectWithIndex()  {
 		Customer customerThatShouldReturn = new CustomerImpl("Peter", "Koch");
@@ -52,6 +67,9 @@ public class DaoCustomerTest {
 		Assert.assertSame("Hasn't returned the customer of the definied index", customerThatShouldReturn, customer);
 	}
 	
+	/**
+	 * should delete customer.
+	 */
 	@Test
 	public void delete()  {
 		Customer firstCustomer = new CustomerImpl("Peter", "Koch");

@@ -5,21 +5,49 @@ import java.util.Scanner;
 import ch.team2.kundenverwaltung.business.BoCustomer;
 import ch.team2.kundenverwaltung.persistence.Customer;
 
+/**
+ * The Class ConsoleViewImpl. Implementation of AbstractViewImpl.
+ * 
+ * @author Vitelli Gianmarco / Mariano Martinez
+ */
 public class ConsoleViewImpl extends AbstractViewImpl {
 
+	/** The Constant NO. */
 	private static final String NO = "N";
+	
+	/** The Constant YES. */
 	private static final String YES = "Y";
+	
+	/** The Constant DELETE. */
 	private static final String DELETE = "4";
+	
+	/** The Constant DISPLAY. */
 	private static final String DISPLAY = "3";
+	
+	/** The Constant DISPLAY_ALL. */
 	private static final String DISPLAY_ALL = "2";
+	
+	/** The Constant CREATE. */
 	private static final String CREATE = "1";
+	
+	/** The Constant EXIT. */
 	private static final String EXIT = "5";
+	
+	/** The console scanner. */
 	private final Scanner consoleScanner = new Scanner(System.in);
 	
+	/**
+	 * Instantiates a new console view impl.
+	 *
+	 * @param boCustomer the bo customer
+	 */
 	public ConsoleViewImpl(BoCustomer boCustomer) {
 		super(boCustomer);
 	}
 
+	/**
+	 * Display customer.
+	 */
 	@Override
 	public void displayCustomer() {
 		final BoCustomer boCustomer = getBoCustomer();
@@ -44,6 +72,9 @@ public class ConsoleViewImpl extends AbstractViewImpl {
 	}
 	
 
+	/**
+	 * Delete customer.
+	 */
 	public void deleteCustomer() {
 		final BoCustomer boCustomer = getBoCustomer();
 		System.out.println("Kundenindex eingeben:");
@@ -65,20 +96,23 @@ public class ConsoleViewImpl extends AbstractViewImpl {
 			String command;
 			do {
 				System.out.println(index + " : " + customer.getFirstName() + " " + customer.getLastName());
-				System.out.println("Möchten Sie wirklich löschen [Y/N]");
+				System.out.println("Mï¿½chten Sie wirklich lï¿½schen [Y/N]");
 				command = this.consoleScanner.nextLine();
 				if(YES.equals(command) || NO.equals(command)) {
 					break;
 				}
-				System.out.println("Eingabe ungültig!");
+				System.out.println("Eingabe ungï¿½ltig!");
 			}while(true);
 			if(YES.equals(command)) {
 				boCustomer.deleteCustomer(index);
-				System.out.println("Kunde wurde gelöscht.");
+				System.out.println("Kunde wurde gelï¿½scht.");
 			}
 		}
 	}
 
+	/**
+	 * Display customers.
+	 */
 	@Override
 	public void displayCustomers() {
 		final BoCustomer boCustomer = getBoCustomer();
@@ -90,6 +124,9 @@ public class ConsoleViewImpl extends AbstractViewImpl {
 		}
 	}
 
+	/**
+	 * Initiate creation of customer.
+	 */
 	@Override
 	public void initiateCreationOfCustomer() {
 		final BoCustomer boCustomer = getBoCustomer();
@@ -102,6 +139,9 @@ public class ConsoleViewImpl extends AbstractViewImpl {
 		boCustomer.createCustomer(firstName, lastName);
 	}
 
+	/**
+	 * Run.
+	 */
 	@Override
 	public void run() {
 		printWelcomeScreen();
@@ -130,21 +170,27 @@ public class ConsoleViewImpl extends AbstractViewImpl {
 			case EXIT:
 				break;
 			default:
-				System.out.println("Ungültige Eingabe!");
+				System.out.println("Ungï¿½ltige Eingabe!");
 				break;
 			}
 		} while(!EXIT.equals(command));
 	}
 	
+	/**
+	 * Prints the menu.
+	 */
 	private void printMenu() {
 		System.out.println("Menu:");
 		System.out.println("[1] Kunde erfassen");
 		System.out.println("[2] Kunden anzeigen");
 		System.out.println("[3] Kunde anzeigen");
-		System.out.println("[4] Kunde löschen");
+		System.out.println("[4] Kunde lï¿½schen");
 		System.out.println("[5] schliessen");
 	}
 	
+	/**
+	 * Prints the welcome screen.
+	 */
 	private void printWelcomeScreen() {
 		System.out.println("                         _                                        _ _                                ");
 		System.out.println("  /\\ /\\_   _ _ __   __| | ___ _ ____   _____ _ ____      ____ _| | |_ _   _ _ __   __ _            ");

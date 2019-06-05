@@ -1,0 +1,7 @@
+ch.team2.kundenverwaltung
+ch.team2.kundenverwaltung.business
+ch.team2.kundenverwaltung.business.test
+ch.team2.kundenverwaltung.persistence
+ch.team2.kundenverwaltung.persistence.test
+ch.team2.kundenverwaltung.presentation
+ch.team2.kundenverwaltung.presentation.swing

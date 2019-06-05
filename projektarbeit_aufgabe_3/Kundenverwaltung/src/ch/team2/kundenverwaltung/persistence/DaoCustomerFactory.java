@@ -1,14 +1,18 @@
 package ch.team2.kundenverwaltung.persistence;
 
-
-
+/**
+ * A factory for creating DaoCustomer objects.
+ * 
+ * @author Vitelli Gianmarco / Mariano Martinez
+ */
 public class DaoCustomerFactory {
-	/**
-	 * Singleton ViewFactory
-	 */
+	
+	/** Singleton ViewFactory. */
 	public static DaoCustomerFactory daoCustomerFactory;
 	
 	/**
+	 * Gets the single instance of DaoCustomerFactory.
+	 *
 	 * @return ViewFactory
 	 */
 	public static DaoCustomerFactory getInstance() {
@@ -16,8 +20,9 @@ public class DaoCustomerFactory {
 	}
 	
 	/**
-	 * create customer
-	 * @return
+	 * create dao customer.
+	 *
+	 * @return the dao customer
 	 */
 	public DaoCustomer createDaoCustomer() {
 		return new DaoCustomerMockImpl();

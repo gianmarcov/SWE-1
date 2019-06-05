@@ -31,33 +31,68 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.JTextField;
 import java.awt.FlowLayout;
 
+/**
+ * The Class SwingViewImpl. Implementation of AbstractViewImpl.
+ * 
+ * @author Vitelli Gianmarco / Mariano Martinez
+ */
 public class SwingViewImpl extends AbstractViewImpl {
 	
+	/** The list. */
 	private final JList<Customer> list = new JList<Customer>();
+	
+	/** The button add. */
 	private final JButton button_add = new JButton("Kunde erfassen");
-	private final JButton button_remove = new JButton("Kunde löschen");
+	
+	/** The button remove. */
+	private final JButton button_remove = new JButton("Kunde lï¿½schen");
+	
+	/** The frame. */
 	private final JFrame frame = new JFrame("Kundenverwaltung");
+	
+	/** The dialog. */
 	private final JDialog dialog = new JDialog(frame, "Kunde erfassen", true);
+	
+	/** The button dialog create. */
 	private final JButton button_dialog_create = new JButton("Erstellen");
+	
+	/** The textfield firstname. */
 	private JTextField textfield_firstname = new JTextField();
+	
+	/** The textfield lastname. */
 	private JTextField textfield_lastname = new JTextField();
+	
+	/** The is textfield firstname valid. */
 	private boolean is_textfield_firstname_valid = false;
+	
+	/** The is textfield lastname valid. */
 	private boolean is_textfield_lastname_valid = false;
 
+	/**
+	 * Instantiates a new swing view impl.
+	 *
+	 * @param boCustomer the bo customer
+	 */
 	public SwingViewImpl(BoCustomer boCustomer) {
 		super(boCustomer);
 	}
 
+	/**
+	 * Display customer.
+	 */
 	@Override
 	public void displayCustomer() {
 	}
 
+	/**
+	 * Display customers.
+	 */
 	@Override
 	public void displayCustomers() {
 	}
 
 	/**
-	 * @wbp.parser.entryPoint
+	 * Initiate creation of customer.
 	 */
 	@Override
 	public void initiateCreationOfCustomer() {
@@ -65,6 +100,9 @@ public class SwingViewImpl extends AbstractViewImpl {
 	}
 
 
+	/**
+	 * Run.
+	 */
 	@Override
 	public void run() {
 		buildMainWindow();
@@ -72,6 +110,9 @@ public class SwingViewImpl extends AbstractViewImpl {
         addListeners();
 	}
 	
+	/**
+	 * Builds the main window.
+	 */
 	private void buildMainWindow() {
 		frame.getContentPane().add(buildTitle(), BorderLayout.PAGE_START);
 		frame.getContentPane().add(buildBody(), BorderLayout.CENTER);
@@ -83,6 +124,9 @@ public class SwingViewImpl extends AbstractViewImpl {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
+	/**
+	 * Builds the create customer dialog.
+	 */
 	private void buildCreateCustomerDialog() {
 		dialog.getContentPane().setLayout(new BorderLayout(0, 0));
 		
@@ -147,6 +191,11 @@ public class SwingViewImpl extends AbstractViewImpl {
 	    dialog.setSize(500, 200);
 	}
 
+	/**
+	 * Builds the title.
+	 *
+	 * @return the j panel
+	 */
 	private JPanel buildTitle() {
         final JPanel jpanel = new JPanel();
         final JLabel label_0 = new JLabel("Kundenverwaltung");
@@ -161,6 +210,11 @@ public class SwingViewImpl extends AbstractViewImpl {
         return jpanel;
 	}
 	
+	/**
+	 * Builds the body.
+	 *
+	 * @return the j panel
+	 */
 	private JPanel buildBody() {
 		final JPanel jpanel = new JPanel();
         final GridBagLayout gridbag = new GridBagLayout();
@@ -230,6 +284,11 @@ public class SwingViewImpl extends AbstractViewImpl {
         return jpanel;
 	}
 	
+	/**
+	 * Builds the credits.
+	 *
+	 * @return the j panel
+	 */
 	private JPanel buildCredits() {
 		final JPanel jpanel = new JPanel();
         final JLabel label = new JLabel("Developed by: Mariano Martinez / Gianmarco Vitelli, all rights reserved");
@@ -239,6 +298,9 @@ public class SwingViewImpl extends AbstractViewImpl {
         return jpanel;
 	}
 	
+	/**
+	 * Fill table with costumer.
+	 */
 	private void fillTableWithCostumer() {
 		DefaultListModel<Customer> defaultListModel = new DefaultListModel<Customer>();
 		for(final Customer customer : getBoCustomer().getCustomers())  {
@@ -247,6 +309,9 @@ public class SwingViewImpl extends AbstractViewImpl {
 		list.setModel(defaultListModel);
 	}
 	
+	/**
+	 * Adds the listeners.
+	 */
 	private void addListeners() {
 		this.list.addListSelectionListener(new ListSelectionListener() {
 			
@@ -340,6 +405,12 @@ public class SwingViewImpl extends AbstractViewImpl {
 		});
 	}
 	
+	/**
+	 * Checks if is printable char.
+	 *
+	 * @param c the character
+	 * @return true, if is printable char
+	 */
 	private boolean isPrintableChar( char c ) {
 	    Character.UnicodeBlock block = Character.UnicodeBlock.of( c );
 	    return (!Character.isISOControl(c)) &&
